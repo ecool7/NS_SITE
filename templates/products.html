@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+
+<div class="products-container">
+  <h2>Our Products</h2>
+
+  <div class="product-list">
+    <!-- Gyroscopes -->
+    <div class="product-item">
+      <div class="product-content">
+        <h3>Gyroscopes</h3>
+        <p>High-precision sensors for measuring angular velocity in navigation systems.</p>
+        <ul>
+          <li>Rotary and fiber optic types</li>
+          <li>Used in aviation, robotics, and spacecraft</li>
+        </ul>
+        <a href="{{ url_for('gyroscope') }}" class="view-btn">View products</a>
+      </div>
+      <img src="{{ url_for('static', filename='img/gyroscope.png') }}" alt="Gyroscope" class="product-image">
+    </div>
+
+    <!-- Accelerometers -->
+    <div class="product-item">
+      <div class="product-content">
+        <h3>Accelerometers</h3>
+        <p>Measure linear acceleration for motion tracking and stabilization.</p>
+        <ul>
+          <li>Multi-axis digital sensors</li>
+          <li>Ideal for inertial navigation and vibration analysis</li>
+        </ul>
+        <a href="{{ url_for('accelerometer') }}" class="view-btn">View products</a>
+      </div>
+      <img src="{{ url_for('static', filename='img/accel.png') }}" alt="Accelerometer" class="product-image">
+    </div>
+
+    <!-- Inertial Modules -->
+    <div class="product-item">
+      <div class="product-content">
+        <h3>Inertial Modules</h3>
+        <p>Integrated systems combining accelerometers and gyroscopes for full motion tracking.</p>
+        <ul>
+          <li>Compact, high-performance IMUs</li>
+          <li>Used in drones, autonomous vehicles, and marine systems</li>
+        </ul>
+        <a href="{{ url_for('imu') }}" class="view-btn">View products</a>
+      </div>
+      <img src="{{ url_for('static', filename='img/IMU.png') }}" alt="Inertial Module" class="product-image">
+    </div>
+
+<!--    &lt;!&ndash; INS &ndash;&gt;-->
+<!--    <div class="product-item">-->
+<!--      <div class="product-content">-->
+<!--        <h3>Inertial Navigation System</h3>-->
+<!--        <p>Autonomous navigation solution combining inertial data with GNSS for high accuracy.</p>-->
+<!--        <ul>-->
+<!--          <li>Real-time position, velocity, and orientation</li>-->
+<!--          <li>Works in GPS-denied environments</li>-->
+<!--        </ul>-->
+<!--        <a href="#" class="view-btn">View products</a>-->
+<!--      </div>-->
+<!--      <img src="{{ url_for('static', filename='img/ins.png') }}" alt="INS" class="product-image">-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+{% endblock %}

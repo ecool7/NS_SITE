@@ -1,0 +1,247 @@
+/* Общие стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9f9f9;
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+/* Заголовок */
+.header {
+  width: 100%;
+  height: 120px;
+  background: linear-gradient(135deg, #f37a00, #f37a00);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Логотип — слева, меню — справа, заголовок — по центру */
+  padding: 0 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Фоновая белая полоса (декоративный элемент) */
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 100%;
+  background-color: white;
+  transform: skew(30deg);
+  z-index: 1;
+}
+
+/* Контейнер логотипа — слева */
+.logo-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Заголовок — по центру */
+.title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  letter-spacing: 1px;
+  text-align: center;
+  flex: 1; /* Занимает оставшееся пространство между логотипом и меню */
+  margin: 0 20px;
+  z-index: 2;
+}
+
+/* Навигационное меню — справа */
+.nav-menu {
+  display: flex;
+  gap: 25px;
+  z-index: 2;
+  align-items: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 10px 0;
+  position: relative;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+  color: #fff;
+}
+
+.nav-menu a:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #fff;
+  transition: width 0.3s ease;
+}
+
+/* Главное содержимое */
+.main {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 0;
+  background: linear-gradient(to right, #f37a00, #f37a00);
+  color: white;
+  border-radius: 15px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: white;
+  color: #f37a00;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  border: 2px solid white;
+}
+
+.btn:hover {
+  background-color: transparent;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Карточки продуктов */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.product-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+}
+
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product-card .content {
+  padding: 20px;
+}
+
+.product-card h3 {
+  margin-bottom: 10px;
+  color: #f37a00;
+}
+
+/* Футер */
+.footer {
+  text-align: center;
+  padding: 30px;
+  background-color: #2c3e50;
+  color: white;
+  margin-top: 60px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+
+  .logo-container {
+    align-self: flex-start;
+    margin-bottom: 10px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .hero {
+    padding: 60px 20px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+}

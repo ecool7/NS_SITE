@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Inertial Measurement Units | Navigation Systems{% endblock %}
+
+{% block page_css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+  <div class="product-category">
+    <h1>Inertial Measurement Units (IMU)</h1>
+    <p>Integrated systems combining accelerometers, gyroscopes, and sometimes magnetometers for full motion tracking.</p>
+
+    <div class="features">
+      <ul>
+        <li><span>→</span> 6-axis and 9-axis models</li>
+        <li><span>→</span> Used in drones, vehicles, marine, and aerospace</li>
+        <li><span>→</span> High accuracy and reliability</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="products-grid">
+    {% for imu in imus %}
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='img/' + imu.image) }}" alt="{{ imu.name }}" class="product-image">
+      <h3>{{ imu.name }}</h3>
+      <p><strong>Type:</strong> {{ imu.type }}</p>
+      <p><strong>Application:</strong> {{ imu.application }}</p>
+      <a href="/imu/{{ imu.id }}" class="view-btn">View details</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
