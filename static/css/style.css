@@ -225,11 +225,16 @@ body {
   }
 
   .title {
+<<<<<<< HEAD
     color: white;
     font-size: 1.8rem;
     margin: 0;
     
 
+=======
+    font-size: 1.8rem;
+    margin: 0;
+>>>>>>> 0252e59050361174eb3850cb7470fb4338bfcb7c
   }
 
   .nav-menu {
@@ -247,4 +252,8 @@ body {
   .hero h1 {
     font-size: 2.5rem;
   }
+<<<<<<< HEAD
+
+=======
 }
+>>>>>>> 0252e59050361174eb3850cb7470fb4338bfcb7c
