@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Accelerometers | Navigation Systems{% endblock %}
+
+{% block page_css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+  <div class="product-category">
+    <h1>Accelerometers</h1>
+    <p>Measure linear acceleration for motion tracking and stabilization.</p>
+
+    <div class="features">
+      <ul>
+        <li><span>→</span> Multi-axis digital sensors</li>
+        <li><span>→</span> Ideal for inertial navigation and vibration analysis</li>
+        <li><span>→</span> High sensitivity and low noise</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="products-grid">
+    {% for acc in accelerometer %}
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='img/' + acc.image) }}" alt="{{ acc.name }}" class="product-image">
+      <h3>{{ acc.name }}</h3>
+      <p><strong>Range:</strong> {{ acc.range }}</p>
+      <p><strong>Application:</strong> {{ acc.application }}</p>
+      <a href="/ACCEL/accelerometer/{{ acc.id }}" class="view-btn">View details</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

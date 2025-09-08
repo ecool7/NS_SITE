@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}{{ sensor.name }} | Navigation Systems{% endblock %}
+
+{% block page_css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+  <div class="product-detail">
+    <h1>{{ sensor.name }}</h1>
+
+    <div class="product-image-container">
+      <img src="{{ url_for('static', filename='img/' + sensor.image) }}" alt="{{ sensor.name }}" class="product-image">
+    </div>
+
+    <p class="description">{{ sensor.description }}</p>
+
+    <h3>Specifications</h3>
+    <table class="specs-table">
+{% for acc in accelerometer %}
+<div class="product-card">
+  <img src="{{ url_for('static', filename='img/' + acc.image) }}" alt="{{ acc.name }}" class="product-image">
+  <h3>{{ acc.name }}</h3>
+  <p><strong>Range:</strong> {{ acc.range }}</p>
+  <p><strong>Application:</strong> {{ acc.application }}</p>
+  <a href="/accelerometer/{{ acc.id }}" class="view-btn">View details</a>
+</div>
+{% endfor %}
+    </table>
+
+    <a href="{{ url_for('static', filename=sensor.datasheet) }}" download class="download-btn">Download Datasheet</a>
+  </div>
+</div>
+{% endblock %}

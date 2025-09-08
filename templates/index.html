@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Navigation Systems{% endblock %}
+
+{% block content %}
+<div class="hero">
+  <h1>Advanced Navigation Solutions</h1>
+  <p>We provide cutting-edge navigation systems for vehicles, aviation, and smart cities.</p>
+  <a href="{{ url_for('products') }}" class="btn">Explore Products</a>
+</div>
+
+<section class="products-grid">
+  <div class="product-card">
+    <img src="{{ url_for('static', filename='img/gps.png') }}" alt="GPS Device">
+    <div class="content">
+      <h3>GPS Navigator</h3>
+      <p>Precise real-time tracking with offline maps.</p>
+    </div>
+  </div>
+  <div class="product-card">
+    <img src="{{ url_for('static', filename='img/aidrive.png') }}" alt="Autopilot">
+    <div class="content">
+      <h3>Autopilot System</h3>
+      <p>AI-powered autonomous driving assistant.</p>
+    </div>
+  </div>
+  <div class="product-card">
+    <img src="{{ url_for('static', filename='img/map.png') }}" alt="Smart Map">
+    <div class="content">
+      <h3>Smart Mapping</h3>
+      <p>Real-time traffic and route optimization.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

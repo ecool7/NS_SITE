@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}Navigation Systems{% endblock %}</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <header class="header">
+    <div class="logo-container">
+      <img src="{{ url_for('static', filename='img/logo.png') }}" alt="NS Logo" class="logo">
+    </div>
+    <div class="title">Navigation Systems</div>
+    <nav class="nav-menu">
+      <a href="/" class="{% if request.endpoint == 'home' %}active{% endif %}">Home</a>
+      <a href="/about" class="{% if request.endpoint == 'about' %}active{% endif %}">About Us</a>
+      <a href="/products" class="{% if request.endpoint == 'products' %}active{% endif %}">Products</a>
+      <a href="/contacts" class="{% if request.endpoint == 'contacts' %}active{% endif %}">Contacts</a>
+    </nav>
+  </header>
+
+  <main class="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 Navigation Systems. All rights reserved.</p>
+  </footer>
+</body>
+</html>

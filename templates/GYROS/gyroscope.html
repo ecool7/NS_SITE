@@ -1,0 +1,39 @@
+
+{% extends "base.html" %}
+
+{% block title %}Gyroscopes | Navigation Systems{% endblock %}
+
+{% block page_css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+  <div class="product-category">
+    <h1>Gyroscopes</h1>
+    <p>High-precision sensors for measuring angular velocity in navigation systems.</p>
+
+    <div class="features">
+      <ul>
+        <li><span>→</span> Rotary and fiber optic types</li>
+        <li><span>→</span> Used in aviation, robotics, and spacecraft</li>
+        <li><span>→</span> High accuracy down to micro-degrees</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Сетка моделей -->
+  <div class="products-grid">
+    {% for gyro in gyroscope %}
+    <div class="product-card">
+      <img src="{{ url_for('static', filename='img/' + gyro.image) }}" alt="{{ gyro.name }}" class="product-image">
+      <h3>{{ gyro.name }}</h3>
+      <p><strong>Accuracy:</strong> {{ gyro.accuracy }}</p>
+      <p><strong>Application:</strong> {{ gyro.application }}</p>
+      <p><strong>Technology:</strong> {{ gyro.technology }}</p>
+      <a href="/GYROS/gyroscope/{{ gyro.name }}" class="view-btn">View details</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
