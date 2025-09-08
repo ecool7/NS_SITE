@@ -1,0 +1,174 @@
+/* ====================== */
+/* Страница деталей продукта */
+/* ====================== */
+
+.product-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  margin: 40px 0;
+}
+
+.image-column {
+  flex: 0 0 400px; /* Фиксированная ширина изображения */
+}
+
+.image-column .product-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  object-fit: contain;
+}
+
+/* Кнопка Download под картинкой */
+.image-column .download-btn {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 12px 24px;
+  background: #f37a00;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.image-column .download-btn:hover {
+  background: transparent;
+  color: #f37a00;
+  border: 2px solid #f37a00;
+}
+
+.specs-column {
+  flex: 1;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 12px;
+}
+
+.specs-column h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+/* Контактная секция */
+.contact-section {
+  margin-top: 60px;
+  padding-top: 40px;
+  border-top: 2px solid #eee;
+}
+
+.contact-section h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+/* Центрирование формы + контакты справа */
+.contact-content {
+  display: flex;
+  gap: 50px;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 10000px;
+  max-width: 600px; /* увеличим до 600px */ss
+  
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  min-height: 180px;
+  resize: vertical;
+}
+
+.contact-form button {
+  padding: 14px 28px;
+  background: #f37a00;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  margin: 0 auto; /* центрирует кнопку */
+}
+
+.contact-form button:hover {
+  background: transparent;
+  color: #f37a00;
+  border: 2px solid #f37a00;
+}
+
+/* Контакты справа */
+.company-info {
+  background: #f9f9f9;
+  padding: 25px;
+  border-radius: 12px;
+  flex: 1;
+  max-width: 300px;
+  text-align: left;
+}
+
+.company-info h4 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.company-info p {
+  margin: 8px 0;
+  color: #555;
+}
+
+/* Адаптивность */
+@media (max-width: 900px) {
+  .product-layout {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .image-column {
+    flex: auto;
+    text-align: center;
+  }
+
+  .image-column .product-image {
+    max-width: 300px;
+    margin: 0 auto;
+  }
+
+  .image-column .download-btn {
+    display: block;
+    margin: 20px auto 0;
+  }
+
+  .contact-content {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .company-info {
+    max-width: none;
+    width: 100%;
+    text-align: center;
+  }
+}

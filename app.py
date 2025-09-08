@@ -91,11 +91,11 @@ SENSORS_GYRO = [
 
 ACCEL = [
     {
-        "id": "NS-ACC-100",
-        "name": "NS-ACC-100",
-        "range": "±2g",
+        "id": "NSAEM1010",
+        "name": "NSAEM1010",
+        "range": "± 2-3",
         "application": "Aviation, robotics",
-        "image": "accel1.png"
+        "image": "NSAEM1010.png"
     },
     {
         "id": "NS-ACC-200",
@@ -115,10 +115,10 @@ ACCEL = [
 
 ACCEL_SENSORS = [
     {
-        "id": "NS-ACC-100",
-        "name": "NS-ACC-100",
-        "image": "accel1.png",
-        "description": "High-sensitivity triaxial accelerometer for precision motion detection in aviation and robotics.",
+        "id": "NSAEM1010",
+        "name": "NSAEM1010",
+        "image": "NSAEM1010.png",
+        "description": "ANALOG COLIBRYS",
         "specs": {
             "Measurement Range": "±2g",
             "Sensitivity": "1000 mV/g",

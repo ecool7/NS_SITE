@@ -3,20 +3,29 @@
 {% block title %}{{ sensor.name }} | Navigation Systems{% endblock %}
 
 {% block page_css %}
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/products.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/cardpr.css') }}">
 {% endblock %}
-
 {% block content %}
 <div class="main">
   <div class="product-detail">
     <h1>{{ sensor.name }}</h1>
 
-    <div class="product-image-container">
-      <img src="{{ url_for('static', filename='img/' + sensor.image) }}" alt="{{ sensor.name }}" class="product-image">
-    </div>
+    <!-- Описание -->
+    {% if sensor.description %}
+      <p class="description">{{ sensor.description }}</p>
+    {% endif %}
 
-    <p class="description">{{ sensor.description }}</p>
-
+    <!-- Сетка: изображение слева, таблица справа -->
+   <div class="product-layout">
+  <div class="image-column">
+    <img src="{{ url_for('static', filename='img/' + sensor.image) }}" alt="{{ sensor.name }}" class="product-image">
+    
+    <!-- 👇 Кнопка теперь сразу под картинкой -->
+    {% if sensor.datasheet %}
+      <a href="{{ url_for('static', filename=sensor.datasheet) }}" download class="download-btn">Download Datasheet</a>
+    {% endif %}
+  </div>
+  <div class="specs-column">
     <h3>Specifications</h3>
     <table class="specs-table">
       {% for key, value in sensor.specs.items() %}
@@ -26,8 +35,30 @@
       </tr>
       {% endfor %}
     </table>
+  </div>
+</div>
 
-    <a href="{{ url_for('static', filename=sensor.datasheet) }}" download class="download-btn">Download Datasheet</a>
+    <!-- Форма обратной связи и контактная информация -->
+    <div class="contact-section">
+      <h3>Contact Us</h3>
+      <div class="contact-content">
+  <div class="contact-form">
+    <form action="#" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" rows="8" required></textarea>
+      <button type="submit" class="view-btn">Send Message</button>
+    </form>
+  </div>
+  <div class="company-info">
+    <h4>Navigation Systems Inc.</h4>
+    <p>📍 123 Tech Avenue, Silicon Valley, CA 94025</p>
+    <p>📞 +1 (555) 123-4567</p>
+    <p>✉️ info@navsystems.com</p>
+  </div>
+</div>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}
