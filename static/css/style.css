@@ -63,7 +63,7 @@ body {
 .title {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #2c3e50;
+  color: white;
   letter-spacing: 1px;
   text-align: center;
   flex: 1; /* Занимает оставшееся пространство между логотипом и меню */
@@ -181,6 +181,7 @@ body {
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
+  padding: 20px 30px;
 }
 
 .product-card:hover {
@@ -191,10 +192,13 @@ body {
   width: 100%;
   height: 200px;
   object-fit: cover;
+  padding: 10px;           /* ← ОТСТУПЫ СО ВСЕХ СТОРОН */
+  box-sizing: border-box;  /* ← КРИТИЧЕСКИ ВАЖНО */
 }
 
 .product-card .content {
-  padding: 20px;
+  padding: 20px 30px;
+  
 }
 
 .product-card h3 {
@@ -225,16 +229,10 @@ body {
   }
 
   .title {
-<<<<<<< HEAD
     color: white;
     font-size: 1.8rem;
     margin: 0;
-    
-
-=======
-    font-size: 1.8rem;
-    margin: 0;
->>>>>>> 0252e59050361174eb3850cb7470fb4338bfcb7c
+  
   }
 
   .nav-menu {
@@ -252,8 +250,9 @@ body {
   .hero h1 {
     font-size: 2.5rem;
   }
-<<<<<<< HEAD
 
-=======
+
+
+
 }
->>>>>>> 0252e59050361174eb3850cb7470fb4338bfcb7c
+
