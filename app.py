@@ -89,27 +89,28 @@ SENSORS_GYRO = [
 
 ############ Блок АКСОВ #########
 
+
 ACCEL = [
     {
         "id": "NSAEM1010",
         "name": "NSAEM1010",
-        "range": "± 2-3",
+        "Bias": "< 0.1mg",
         "application": "Aviation, robotics",
         "image": "NSAEM1010.png"
     },
     {
-        "id": "NS-ACC-200",
-        "name": "NS-ACC-200",
-        "range": "±8g",
-        "application": "Vibration analysis, industrial systems",
-        "image": "accel2.png"
+        "id": "NSA4000D",
+        "name": "NSA4000D",
+        "Bias": "< 0.02mg",
+        "application": "Industrial systems",
+        "image": "NSA4000D.png"
     },
 {
-        "id": "NS-ACC-300",
-        "name": "NS-ACC-300",
-        "range": "±50g",
-        "application": "Structural monitoring, military vehicles",
-        "image": "accel3.png"  # ← проверь имя!
+        "id": "NSQAD",
+        "name": "NSQAD",
+        "Bias": "< 5mg",
+        "application": "Structural monitoring",
+        "image": "NSQAD.png"  
     }
 ]
 
@@ -120,99 +121,51 @@ ACCEL_SENSORS = [
         "image": "NSAEM1010.png",
         "description": "ANALOG COLIBRYS",
         "specs": {
-            "Measurement Range": "±2g",
-            "Sensitivity": "1000 mV/g",
-            "Frequency Response": "0.5 Hz to 2.5 kHz",
-            "Noise Level": "25 µg/√Hz",
+            "Measurement Range": "±2g...±30g",
+            "Bias": "< 0.01",
+            "Frequency Response": "20 Hz to 2 kHz",
+            "Noise Level": "30 µg/√Hz",
             "Application": "Aviation, robotics, vibration monitoring",
             "Interface": "Analog output",
-            "Operating Temp": "-40°C to +85°C",
+            "Operating Temp": "-55°C to +125°C",
             "Power Supply": "5V DC"
         },
         "datasheet": "datasheets/NS-ACC-100.pdf"
     },
     {
-        "id": "NS-ACC-200",
-        "name": "NS-ACC-200",
-        "image": "accel2.png",
-        "description": "Digital MEMS-based accelerometer with I²C/SPI interface for industrial and navigation systems.",
+        "id": "NSA4000D",
+        "name": "NSA4000D",
+        "image": "NSA4000D.png",
+        "description": "Digital MEMS-based accelerometer with SPI interface for industrial and navigation systems.",
         "specs": {
-            "Measurement Range": "±8g",
-            "Resolution": "16-bit",
-            "Interface": "I²C, SPI",
-            "Bandwidth": "1.6 kHz",
-            "Shock Survival": "10,000g",
+            "Measurement Range": "±2g...±50g",
+            "Bias": "< 0.02 mg",
+            "Interface": "SPI",
+            "Bandwidth": "300 Hz",
             "Application": "Industrial automation, inertial navigation",
-            "Operating Temp": "-40°C to +105°C",
-            "Power Supply": "3.3V DC"
+            "Operating Temp": "-45°C to +85°C",
+            
         },
         "datasheet": "datasheets/NS-ACC-200.pdf"
     },
     {
-        "id": "NS-ACC-300",
-        "name": "NS-ACC-300",
-        "image": "accel3.png",
-        "description": "High-g shock accelerometer for impact detection and structural health monitoring.",
+        "id": "NSQAD",
+        "name": "NSQAD",
+        "image": "NSQAD.png",
+        "description": "Digital Q-FLEX accelerometer for structural health monitoring.",
         "specs": {
-            "Measurement Range": "±50g",
-            "Output": "Analog (4-20mA)",
-            "Frequency Response": "1 Hz to 10 kHz",
-            "Accuracy": "±1%",
+            "Measurement Range": "±30g...±70g",
+	    "Bias": "< 0.02 mg",
+            "Output": "Digital",
+            "Bandwidth": "100 Hz",
             "Application": "Structural monitoring, military vehicles",
-            "Housing": "Stainless steel, IP67",
-            "Operating Temp": "-55°C to +125°C",
-            "Power Supply": "12-24V DC"
+            "Operating Temp": "-40°C to +85°C",
+            "Power Supply": "12-15V DC"
         },
         "datasheet": "datasheets/NS-ACC-300.pdf"
     }
 ]
 
-
-# Список IMU (для списка на странице)
-IMU = [
-    {
-        "id": "NS-IMU-100",
-        "name": "NS-IMU-100",
-        "type": "6-axis",
-        "application": "Drones, robotics",
-        "image": "imu1.png"
-    },
-    {
-        "id": "NS-IMU-200",
-        "name": "NS-IMU-200",
-        "type": "9-axis",
-        "application": "Autonomous vehicles",
-        "image": "imu2.png"
-    },
-    {
-        "id": "NS-IMU-300",
-        "name": "NS-IMU-300",
-        "type": "6-axis",
-        "application": "Industrial automation",
-        "image": "imu3.png"
-    },
-    {
-        "id": "NS-IMU-400",
-        "name": "NS-IMU-400",
-        "type": "9-axis",
-        "application": "Aviation, navigation",
-        "image": "imu4.png"
-    },
-    {
-        "id": "NS-IMU-500",
-        "name": "NS-IMU-500",
-        "type": "6-axis",
-        "application": "Marine systems",
-        "image": "imu5.png"
-    },
-    {
-        "id": "NS-IMU-600",
-        "name": "NS-IMU-600",
-        "type": "9-axis",
-        "application": "Spacecraft, high-precision",
-        "image": "imu6.png"
-    }
-]
 
 # Подробные данные для детальных страниц
 # Список IMU (для списка на странице)

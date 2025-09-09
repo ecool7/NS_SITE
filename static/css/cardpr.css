@@ -46,6 +46,7 @@
   padding: 20px;
   background: #f9f9f9;
   border-radius: 12px;
+  margin-left: auto; /* ← сдвигает таблицу вправо */
 }
 
 .specs-column h3 {
@@ -121,11 +122,11 @@
 /* Контакты справа */
 .company-info {
   background: #f9f9f9;
-  padding: 25px;
+  padding: 20px;
   border-radius: 12px;
   flex: 1;
-  max-width: 300px;
-  text-align: left;
+  max-width: 800px;
+  text-align: right;
 }
 
 .company-info h4 {
