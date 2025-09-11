@@ -1,22 +1,167 @@
 {% extends "base.html" %}
 
-{% block content %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% block title %}About Us | Navigation Systems{% endblock %}
 
-<h1>About Us</h1>
-<p>Navigation Systems — Precision Tested by Time
-
-Since 1987, Navigation Systems has been setting the standard in inertial technology. For over 35 years, we have been designing and manufacturing high-precision inertial sensors that form the core of navigation systems for aviation, marine vessels, land-based vehicles, and spacecraft.
-
-Our mission is to deliver reliability and accuracy in environments where every degree and millisecond counts. Through continuous investment in research and development, we’ve created a full range of inertial measurement units (IMUs), gyroscopes, and accelerometers that perform flawlessly even in the most extreme conditions — from polar regions to deserts and deep-sea depths.
-
-Navigation Systems is more than just technology — it’s a legacy of engineering excellence. Our solutions are trusted by leading global equipment manufacturers, government agencies, and scientific institutions. We take pride in knowing our products enable safe and precise navigation in environments where GPS is unavailable or unreliable.</p>
-
-Today, just as in 1987, we remain committed to our core principles:
-<p> 🔹 Precision — down to micro-degrees and microseconds. </p>
-<p> 🔹 Reliability — proven in the harshest environments. </p>
-<p> 🔹 Innovation — future-ready technology in every sensor.</p>
-
-<p>  Navigation Systems — Your trusted compass in the world of advanced technology.</p>
+{% block page_css %}
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
 {% endblock %}
 
+{% block content %}
+<div class="main">
+  <div class="about-container">
+    
+    <!-- Заголовок -->
+    <h1 class="page-title">About Us</h1>
+    
+    <!-- Краткое описание -->
+    <div class="intro-section">
+      <div class="intro-text">
+        <p class="highlight">
+          Navigation Systems — Precision Tested by Time Since 1987
+        </p>
+        <p>
+          For over 35 years, we have been designing and manufacturing high-precision inertial sensors that form the core of navigation systems for aviation, marine vessels, land-based vehicles, and spacecraft.
+        </p>
+      </div>
+      <div class="intro-image">
+        <img src="{{ url_for('static', filename='img/about-team.png') }}" alt="Our Team">
+      </div>
+    </div>
+
+    <!-- Статистика -->
+    <div class="stats-section">
+      <div class="stat-item">
+        <div class="stat-number">35+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Global Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">Sensors Deployed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">99.9%</div>
+        <div class="stat-label">Reliability Rate</div>
+      </div>
+    </div>
+
+    <!-- Подробное описание -->
+    <div class="mission-section">
+      <h2>Our Mission</h2>
+      <p>
+        Our mission is to deliver reliability and accuracy in environments where every degree and millisecond counts. Through continuous investment in research and development, we've created a full range of inertial measurement units (IMUs), gyroscopes, and accelerometers that perform flawlessly even in the most extreme conditions — from polar regions to deserts and deep-sea depths.
+      </p>
+      
+      <div class="mission-image">
+        <img src="{{ url_for('static', filename='img/mission.png') }}" alt="Our Mission">
+      </div>
+    </div>
+
+    <!-- Принципы компании -->
+    <div class="principles-section">
+      <h2>Core Principles</h2>
+      <div class="principles-grid">
+        <div class="principle-item">
+          <div class="principle-icon">🔹</div>
+          <div class="principle-text">
+            <strong>Precision</strong> — down to micro-degrees and microseconds
+          </div>
+        </div>
+        <div class="principle-item">
+          <div class="principle-icon">🔹</div>
+          <div class="principle-text">
+            <strong>Reliability</strong> — proven in the harshest environments
+          </div>
+        </div>
+        <div class="principle-item">
+          <div class="principle-icon">🔹</div>
+          <div class="principle-text">
+            <strong>Innovation</strong> — future-ready technology in every sensor
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Карусель -->
+<div class="carousel-section">
+  <h2>Factory Shooting</h2>
+  <div class="carousel-container">
+    <div class="carousel">
+      <!-- Слайды -->
+      <div class="slide active">
+        <img src="{{ url_for('static', filename='img/factory1.png') }}" alt="Redo mechanical testing equipment">
+        <div class="caption">Redo mechanical testing equipment</div>
+      </div>
+      <div class="slide">
+        <img src="{{ url_for('static', filename='img/factory2.png') }}" alt="Three-axis temperature test and vibration test testing area">
+        <div class="caption">Three-axis temperature test and vibration test testing area</div>
+      </div>
+      <div class="slide">
+        <img src="{{ url_for('static', filename='img/factory3.png') }}" alt="Three-axis temperature test and vibration test testing area">
+        <div class="caption">Three-axis temperature test and vibration test testing area</div>
+      </div>
+      <div class="slide">
+        <img src="{{ url_for('static', filename='img/factory4.png') }}" alt="Redo mechanical testing equipment">
+        <div class="caption">Redo mechanical testing equipment</div>
+      </div>
+      <div class="slide">
+        <img src="{{ url_for('static', filename='img/factory5.png') }}" alt="Large machine in the factory">
+        <div class="caption">Large machine in the factory</div>
+      </div>
+    </div>
+
+    <!-- Точки навигации -->
+    <div class="dots">
+      <span class="dot active" data-slide="0"></span>
+      <span class="dot" data-slide="1"></span>
+      <span class="dot" data-slide="2"></span>
+      <span class="dot" data-slide="3"></span>
+      <span class="dot" data-slide="4"></span>
+    </div>
+  </div>
+</div>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const carousel = document.querySelector('.carousel');
+  const dots = document.querySelectorAll('.dot');
+  let currentSlide = 0;
+
+  // Переключение слайда
+  function showSlide(index) {
+    carousel.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[index].classList.add('active');
+  }
+
+  // Клик по точкам
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const slideIndex = parseInt(dot.getAttribute('data-slide'));
+      showSlide(slideIndex);
+    });
+  });
+
+  // Автоматическое переключение каждые 3 секунды
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % dots.length;
+    showSlide(currentSlide);
+  }, 3000);
+});
+</script>
+
+    <!-- Заключение -->
+    <div class="closing-section">
+      <p>
+        Navigation Systems is more than just technology — it's a legacy of engineering excellence. Our solutions are trusted by leading global equipment manufacturers, government agencies, and scientific institutions.
+      </p>
+      <p class="highlight">
+        Navigation Systems — Your trusted compass in the world of advanced technology.
+      </p>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

@@ -14,7 +14,9 @@
 <body>
   <header class="header">
     <div class="logo-container">
+      <a href="{{ url_for('home') }}">
       <img src="{{ url_for('static', filename='img/logo.png') }}" alt="NS Logo" class="logo">
+      </a>
     </div>
     <div class = "title">Navigation Systems</div>
     <nav class="nav-menu">
@@ -26,6 +28,17 @@
   </header>
 
   <main class="main">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <div class="container" style="margin-top: 20px;">
+      {% for category, message in messages %}
+        <div class="alert alert-{{ 'danger' if category == 'error' else category }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
     {% block content %}{% endblock %}
   </main>
 
