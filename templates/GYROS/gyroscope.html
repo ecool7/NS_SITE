@@ -28,7 +28,6 @@
     <div class="product-card">
       <img src="{{ url_for('static', filename='img/' + gyro.image) }}" alt="{{ gyro.name }}" class="product-image">
       <h3>{{ gyro.name }}</h3>
-      <p><strong>Accuracy:</strong> {{ gyro.accuracy }}</p>
       <p><strong>Application:</strong> {{ gyro.application }}</p>
       <p><strong>Technology:</strong> {{ gyro.technology }}</p>
       <a href="/GYROS/gyroscope/{{ gyro.name }}" class="view-btn">View details</a>

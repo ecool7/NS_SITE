@@ -155,7 +155,7 @@ body {
 
 .intro-image img {
   flex: 1;
-  max-width: 400px;
+  max-width: 200%;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -206,7 +206,7 @@ body {
 }
 
 .mission-image img {
-  max-width: 100%;
+  max-width: 70%;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
