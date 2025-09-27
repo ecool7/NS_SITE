@@ -230,6 +230,7 @@ import os
 from data.gyro_data import GYROSCOPES, SENSORS_GYRO
 from data.accel_data import ACCEL_SENSORS, ACCEL
 from data.imu_data import IMU_SENSORS, IMU
+from data.news_data import NEWS
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key_here_12345'  # для flash-сообщений
@@ -303,7 +304,7 @@ def send_email(name, email, subject, message):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
+    return render_template('index.html', news=NEWS)
 
 @app.route('/about')
 def about():
@@ -405,6 +406,18 @@ def imu_detail(sensor_id):
         return redirect(url_for('imu_detail', sensor_id=sensor_id))
     
     return render_template('IMU/IMUproduct.html', sensor=sensor)
+
+@app.route('/news')
+def news():
+    return render_template('news.html', news=NEWS)
+
+@app.route('/news/<string:news_id>')
+def news_detail(news_id):
+    news_item = next((n for n in NEWS if n["id"] == news_id), None)
+    if not news_item:
+        return "News not found", 404
+    
+    return render_template('news_detail.html', news_item=news_item)
 
 if __name__ == '__main__':
     app.run(debug=True)

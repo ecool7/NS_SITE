@@ -2,6 +2,10 @@
 
 {% block title %}Home - Navigation Systems{% endblock %}
 
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/news.css') }}">
+{% endblock %}
+
 {% block content %}
 <div class="hero">
   <h1>Advanced Navigation Solutions</h1>
@@ -9,27 +13,32 @@
   <a href="{{ url_for('products') }}" class="btn">Explore Products</a>
 </div>
 
-<section class="products-grid">
-  <div class="product-card">
-    <img src="{{ url_for('static', filename='img/gps.png') }}" alt="GPS Device">
-    <div class="content">
-      <h3>GPS Navigator</h3>
-      <p>Precise real-time tracking with offline maps.</p>
-    </div>
+
+<section class="news-section">
+  <div class="news-header">
+    <h2>Latest News</h2>
+    <p>Stay updated with the latest developments in navigation technology</p>
   </div>
-  <div class="product-card">
-    <img src="{{ url_for('static', filename='img/aidrive.png') }}" alt="Autopilot">
-    <div class="content">
-      <h3>Autopilot System</h3>
-      <p>AI-powered autonomous driving assistant.</p>
-    </div>
-  </div>
-  <div class="product-card">
-    <img src="{{ url_for('static', filename='img/map.png') }}" alt="Smart Map">
-    <div class="content">
-      <h3>Smart Mapping</h3>
-      <p>Real-time traffic and route optimization.</p>
-    </div>
+  
+  <div class="news-grid">
+    {% for item in news %}
+    <article class="news-card">
+      <div class="news-image">
+        <img src="{{ url_for('static', filename='img/' + item.image) }}" alt="{{ item.title }}">
+        <div class="news-category">{{ item.category }}</div>
+      </div>
+      <div class="news-content">
+        <div class="news-meta">
+          <span class="news-date">{{ item.date }}</span>
+        </div>
+        <h3 class="news-title">
+          <a href="{{ url_for('news_detail', news_id=item.id) }}">{{ item.title }}</a>
+        </h3>
+        <p class="news-summary">{{ item.summary }}</p>
+        <a href="{{ url_for('news_detail', news_id=item.id) }}" class="read-more">Read More</a>
+      </div>
+    </article>
+    {% endfor %}
   </div>
 </section>
 {% endblock %}

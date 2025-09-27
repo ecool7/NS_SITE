@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}{{ news_item.title }} - Navigation Systems{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/news.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="news-detail">
+  <div class="news-detail-header">
+    <div class="breadcrumb">
+      <a href="{{ url_for('home') }}">Home</a> > 
+      <a href="{{ url_for('news') }}">News</a> > 
+      <span>{{ news_item.title }}</span>
+    </div>
+    
+    <div class="news-meta">
+      <span class="news-category">{{ news_item.category }}</span>
+      <span class="news-date">{{ news_item.date }}</span>
+    </div>
+    
+    <h1 class="news-title">{{ news_item.title }}</h1>
+  </div>
+  
+  <div class="news-detail-content">
+    <div class="news-image">
+      <img src="{{ url_for('static', filename='img/' + news_item.image) }}" alt="{{ news_item.title }}">
+    </div>
+    
+    <div class="news-body">
+      {{ news_item.content | safe }}
+    </div>
+  </div>
+  
+  <div class="news-navigation">
+    <a href="{{ url_for('news') }}" class="btn btn-secondary">Back to News</a>
+  </div>
+</div>
+{% endblock %}

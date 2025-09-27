@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}News - Navigation Systems{% endblock %}
+
+{% block page_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/news.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="news-header">
+  <h1>Latest News</h1>
+  <p>Stay updated with the latest developments in navigation technology</p>
+</div>
+
+<section class="news-grid">
+  {% for item in news %}
+  <article class="news-card">
+    <div class="news-image">
+      <img src="{{ url_for('static', filename='img/' + item.image) }}" alt="{{ item.title }}">
+      <div class="news-category">{{ item.category }}</div>
+    </div>
+    <div class="news-content">
+      <div class="news-meta">
+        <span class="news-date">{{ item.date }}</span>
+      </div>
+      <h2 class="news-title">
+        <a href="{{ url_for('news_detail', news_id=item.id) }}">{{ item.title }}</a>
+      </h2>
+      <p class="news-summary">{{ item.summary }}</p>
+      <a href="{{ url_for('news_detail', news_id=item.id) }}" class="read-more">Read More</a>
+    </div>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}
